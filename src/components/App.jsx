@@ -5,9 +5,9 @@ import { FormWrap, TitlePhone, TitleContact } from './App.styled';
 import { useState, useEffect } from 'react';
 
 export function App() {
-  const [contacts, setContacts] = useState(
-    () => JSON.parse(localStorage.getItem('contacts')) ?? []
-  );
+  const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
+
+  const [contacts, setContacts] = useState(() => parsedContacts ?? []);
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
